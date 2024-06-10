@@ -1,5 +1,6 @@
 import express from 'express';
 import { WebSocketServer, WebSocket } from 'ws';
+const cors = require('cors');
 import { v4 as uuidv4 } from 'uuid';
 
 interface CustomWebSocket extends WebSocket {
