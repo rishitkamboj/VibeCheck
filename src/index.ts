@@ -3,6 +3,8 @@ import { WebSocketServer, WebSocket } from 'ws';
 const cors = require('cors');
 import { v4 as uuidv4 } from 'uuid';
 
+
+
 interface CustomWebSocket extends WebSocket {
   id?: string;
   color?: string;
@@ -11,17 +13,16 @@ interface CustomWebSocket extends WebSocket {
 const port =process.env.PORT|| 8080;
 
 const app = express();
+app.use(cors());
 const httpServer = app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
 
 const COLORS = [
-  '#FF5733', '#33FFA8', '#338AFF', '#FF33E9', '#E9FF33',
-  '#FF0000', '#FFFF00', '#00FF00', '#00FFFF', '#0000FF', 
-  '#800000', '#FF8000', '#008000', '#00FF80', '#000080',
-  '#C00000', '#FFC000', '#00C000', '#00FFC0', '#C0C000',
-  '#0000C0', '#FF00FF', '#00FFFF', '#FFFF00', '#FF0000',
-  '#8B0000', '#FF8B00', '#008B00', '#00FF8B', '#8B00FF',
+  '#FF5733', '#FF33E9', '#E9FF33',
+  '#FF0000', '#800000', '#FF8000', '#800000', '#FF8000', '#008000',
+  '#C00000', '#FFC000', '#00C000', '#C0C000',
+  '#0000C0', '#8B0000', '#FF8B00', '#8B00FF',
   '#00008B', '#A9A9A9', '#D3D3D3', '#F0F0F0', '#90EE90', 
   '#FF00FF', '#00CED1', '#9400D3', '#FFD700', '#FFA500',  
   '#C71585', '#DA70D6', '#EEE8AA', '#4169E1', '#EE82EE',  
