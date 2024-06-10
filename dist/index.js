@@ -5,9 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const ws_1 = require("ws");
+const port = process.env.PORT || 8080;
 const app = (0, express_1.default)();
-const httpServer = app.listen(8080, () => {
-    console.log('Server is listening on port 8080');
+const httpServer = app.listen(port, () => {
+    console.log(`Server is listening on port ${port}`);
 });
 const COLORS = [
     '#FF5733', '#33FFA8', '#338AFF', '#FF33E9', '#E9FF33',
